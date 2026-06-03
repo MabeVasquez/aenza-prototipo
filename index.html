@@ -561,6 +561,10 @@ body:has(button:hover) #c-dot { opacity: 0; }
 }
 
 
+
+
+
+
 /* ══════════════════════════════════════════════════════
    CONCESIONARIAS — auto-scroll carousel
 ══════════════════════════════════════════════════════ */
@@ -3468,6 +3472,168 @@ body:has(button:hover) #c-dot { opacity: 0; }
   .hb { display: flex !important; }
 }
 
+
+/* ── Empresa panel logo: más grande, tipo wordmark ── */
+.emp-panel-logo {
+  width: auto !important;
+  height: 64px !important;
+  border-radius: 10px !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 16px !important;
+  margin-bottom: 20px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: background .4s, border-color .4s, transform .5s cubic-bezier(.16,1,.3,1) !important;
+  min-width: 140px !important;
+  width: fit-content !important;
+}
+.emp-panel:hover .emp-panel-logo {
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.25) !important;
+  transform: translateY(-3px) !important;
+}
+.emp-logo-text {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: #fff;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.emp-logo-text .elt-main {
+  font-size: 1.15rem;
+  letter-spacing: -.02em;
+}
+.emp-logo-text .elt-sub {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+/* UNNA brand: two-color wordmark */
+.emp-logo-text .elt-brand-1 { color: #fff; }
+.emp-logo-text .elt-brand-2 { color: var(--blue); }
+
+/* VIVA: bold single word */
+.emp-logo-viva .elt-main {
+  font-size: 1.5rem;
+  letter-spacing: .06em;
+}
+
+/* ── Concesionaria card logos ── */
+.conc-ico {
+  width: 100% !important;
+  height: 52px !important;
+  border-radius: 6px !important;
+  border: none !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 18px !important;
+  transition: none !important;
+}
+/* The logo SVG inside */
+.conc-logo-svg {
+  transition: opacity .3s;
+}
+/* L1 = dark navy blue by default, brand blue on hover */
+.conc-card .conc-logo-svg { opacity: .7; filter: brightness(.6) saturate(.5); }
+.conc-card:hover .conc-logo-svg { opacity: 1; filter: none; }
+
+
+/* ── Concesionaria brand colors on hover ── */
+/* Default: desaturated dark blue */
+.conc-card .conc-logo-svg { filter: saturate(.2) brightness(.6); transition: filter .4s; }
+.conc-card:hover .conc-logo-svg { filter: saturate(1) brightness(1); }
+
+/* Línea 1 hover: red accent preserved */
+.conc-card:nth-child(1):hover .conc-logo-svg,
+.conc-card:nth-child(6):hover .conc-logo-svg { filter: saturate(1.2) brightness(1.05); }
+
+/* Norvial: deep navy on hover */
+.conc-card:nth-child(2):hover .conc-logo-svg,
+.conc-card:nth-child(7):hover .conc-logo-svg { filter: saturate(1) brightness(1.1); }
+
+/* Survial: bright blue on hover */
+.conc-card:nth-child(3):hover .conc-logo-svg,
+.conc-card:nth-child(8):hover .conc-logo-svg { filter: saturate(1) brightness(1.1); }
+
+/* conc-ico: no padding or border, just show logo */
+.conc-ico {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.conc-card:hover .conc-ico { background: transparent !important; }
+
+
+/* ── Empresa panel logo: img container ── */
+.emp-panel-logo {
+  width: 100px !important;
+  height: 64px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 14px !important;
+  margin-bottom: 20px !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition: background .4s, border-color .4s, transform .5s cubic-bezier(.16,1,.3,1) !important;
+  overflow: hidden !important;
+  min-width: unset !important;
+  width: fit-content !important;
+}
+.emp-panel:hover .emp-panel-logo {
+  background: rgba(255,255,255,.18) !important;
+  border-color: rgba(255,255,255,.35) !important;
+  transform: translateY(-4px) !important;
+}
+/* Logo image inside */
+.emp-logo-img {
+  width: auto;
+  height: 100%;
+  max-height: 42px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter .4s;
+}
+.emp-panel:hover .emp-logo-img { filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,.3)); }
+
+/* ── Concesionaria logos — SVG only, B&W → color ── */
+.conc-ico {
+  width: 100% !important;
+  height: 60px !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.conc-ico svg {
+  width: auto;
+  max-width: 100%;
+  height: 44px;
+  transition: filter .45s cubic-bezier(.16,1,.3,1);
+  filter: grayscale(1) brightness(.55);
+}
+.conc-card:hover .conc-ico svg {
+  filter: grayscale(0) brightness(1);
+}
+
 </style>
 </head>
 <body class="over-dark">
@@ -3514,7 +3680,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 1 -->
   <div class="sl on">
-    <div class="sl-img" style="background-image:url('infra 2.jpg')"></div>
+    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&auto=format&fit=crop&q=85')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Infraestructura · Energía · Inmobiliario</div>
       <h1 class="sl-h1">
@@ -3532,7 +3698,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 2 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('Patio SJL 020.JPG')"></div>
+    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1800&auto=format&fit=crop&q=85')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sectores Estratégicos</div>
       <h1 class="sl-h1">
@@ -3549,7 +3715,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 3 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('editadas_6.JPG')"></div>
+    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1800&auto=format&fit=crop&q=85')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sostenibilidad</div>
       <h1 class="sl-h1">
@@ -3610,7 +3776,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       </div>
     </div>
     <div class="qs-hero-visual">
-      <div class="qs-hero-bg" style="background-image:url('DJI_0298 (1) norvial.jpg')"></div>
+      <div class="qs-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&auto=format&fit=crop&q=85')"></div>
       <!-- Floating KPI cards -->
       <div class="qs-float-kpis" id="metrics">
         <div class="qs-fkpi">
@@ -3663,7 +3829,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <div class="qs-ppanel active" data-panel="0">
       <div class="qs-ppanel-img">
-        <img src="DJI_0284_01682.jpg" alt="Gobierno corporativo"/>
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&auto=format&fit=crop&q=85" alt="Gobierno corporativo"/>
         <div class="qs-ppanel-watermark">01</div>
       </div>
       <div class="qs-ppanel-body">
@@ -3684,7 +3850,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <div class="qs-ppanel" data-panel="1">
       <div class="qs-ppanel-img">
-        <img src="Survial 04.jpg" alt="Visión estratégica"/>
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&auto=format&fit=crop&q=85" alt="Visión estratégica"/>
         <div class="qs-ppanel-watermark">02</div>
       </div>
       <div class="qs-ppanel-body">
@@ -3705,7 +3871,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <div class="qs-ppanel" data-panel="2">
       <div class="qs-ppanel-img">
-        <img src="Patio SJL 020.JPG" alt="Sostenibilidad"/>
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&auto=format&fit=crop&q=85" alt="Sostenibilidad"/>
         <div class="qs-ppanel-watermark">03</div>
       </div>
       <div class="qs-ppanel-body">
@@ -3749,17 +3915,19 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <!-- UNNA Infraestructura -->
     <div class="emp-panel" data-e3>
-      <div class="emp-panel-bg" style="background-image:url('Estacion Bayovar 053.JPG')"></div>
+      <div class="emp-panel-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1400&auto=format&fit=crop&q=85')"></div>
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">01</div>
       <div class="emp-panel-body">
         <div class="emp-panel-tag">Infraestructura Vial</div>
         <div class="emp-panel-logo">
-<a href="#" class="nav-logo">
-    <div class="nav-logo-mark">
-        <img src="Logo_de_Viva.png" alt="AENZA Logo" class="logo-img">
-    </div>
-</a>
+          <!-- Reemplaza src con la ruta real del logo UNNA Infraestructura -->
+          <img class="emp-logo-img" src="logo-unna-infraestructura.png" alt="UNNA Infraestructura"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div style="display:none;align-items:center;gap:4px">
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M3 25V13L14 6L25 13V25" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="17" width="8" height="8" stroke="#fff" stroke-width="1.8"/></svg>
+            <span style="color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.02em">UNNA</span>
+          </div>
         </div>
         <div class="emp-panel-name">UNNA Infraestructura</div>
         <div class="emp-panel-sector">Carreteras · Túneles · Metro</div>
@@ -3780,15 +3948,19 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <!-- UNNA Energía -->
     <div class="emp-panel" data-e3>
-      <div class="emp-panel-bg" style="background-image:url('unnainfra.jpg')"></div>
+      <div class="emp-panel-bg" style="background-image:url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1400&auto=format&fit=crop&q=85')"></div>
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">02</div>
       <div class="emp-panel-body">
         <div class="emp-panel-tag">Energía Renovable</div>
         <div class="emp-panel-logo">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 3L11 16h5l-3 9 9-14h-6l4-8z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
-          </svg>
+          <!-- Reemplaza src con la ruta real del logo UNNA Energía -->
+          <img class="emp-logo-img" src="logo-unna-energia.png" alt="UNNA Energía"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div style="display:none;align-items:center;gap:4px">
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M16 3L11 16h5l-3 9 9-14h-6l4-8z" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/></svg>
+            <span style="color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.02em">UNNA</span>
+          </div>
         </div>
         <div class="emp-panel-name">UNNA Energía</div>
         <div class="emp-panel-sector">Generación · Transmisión · Renovables</div>
@@ -3809,18 +3981,18 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
     <!-- VIVA -->
     <div class="emp-panel" data-e3>
-      <div class="emp-panel-bg" style="background-image:url('viva_inmobiliaria.jpg')"></div>
+      <div class="emp-panel-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&auto=format&fit=crop&q=85')"></div>
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">03</div>
       <div class="emp-panel-body">
         <div class="emp-panel-tag">Desarrollo Inmobiliario</div>
         <div class="emp-panel-logo">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3"  y="14" width="7" height="11" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="11" y="9"  width="7" height="16" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="19" y="12" width="6" height="13" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <line x1="1" y1="25" x2="27" y2="25" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
+          <!-- Reemplaza src con la ruta real del logo VIVA -->
+          <img class="emp-logo-img" src="Logo_de_Viva.png" alt="VIVA"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div style="display:none;align-items:center;">
+            <span style="color:#fff;font-size:1.2rem;font-weight:800;letter-spacing:.08em">VIVA</span>
+          </div>
         </div>
         <div class="emp-panel-name">VIVA</div>
         <div class="emp-panel-sector">Residencial · Comercial · Uso Mixto</div>
@@ -3885,18 +4057,72 @@ body:has(button:hover) #c-dot { opacity: 0; }
   <div class="carousel-wrap reveal d1">
     <div class="carousel-track">
       <!-- set A -->
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l3-10h12l3 10H3z"/><path d="M7 17v2m10-2v2"/><rect x="9" y="11" width="6" height="4"/></svg></div><div class="conc-name">Línea 1</div><div class="conc-type">Metro de Lima</div><div class="conc-n">01</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 17Q6 10 12 12Q18 14 22 7"/><circle cx="5" cy="17" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="9" r="1.5" fill="currentColor"/></svg></div><div class="conc-name">Norvial</div><div class="conc-type">Carretera Norte</div><div class="conc-n">02</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 7Q6 14 12 12Q18 10 22 17"/><circle cx="5" cy="7" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="17" r="1.5" fill="currentColor"/></svg></div><div class="conc-name">Survial</div><div class="conc-type">Carretera Sur</div><div class="conc-n">03</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L20 20L12 16L4 20Z"/></svg></div><div class="conc-name">Canchaque</div><div class="conc-type">Concesión Vial</div><div class="conc-n">04</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 3L10 14H13L11 21L18 10H14L17 3Z" stroke-linejoin="round"/></svg></div><div class="conc-name">UNNA Energía</div><div class="conc-type">Energía</div><div class="conc-n">05</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="56" height="44" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="54" height="42" rx="5" fill="#0a1740" stroke="#1a3a7a" stroke-width="1.5"/>
+  <text x="6" y="30" font-family="system-ui,Arial,sans-serif" font-weight="900" font-size="22" fill="#ffffff">L</text>
+  <text x="22" y="30" font-family="system-ui,Arial,sans-serif" font-weight="900" font-size="22" fill="#e30613">1</text>
+  <rect x="39" y="10" width="3.5" height="24" rx="1.5" fill="#e30613" opacity=".9"/>
+  <rect x="44" y="15" width="3.5" height="19" rx="1.5" fill="#e30613" opacity=".7"/>
+  <rect x="49" y="12" width="3.5" height="22" rx="1.5" fill="#e30613" opacity=".5"/>
+</svg></div><div class="conc-name">Línea 1</div><div class="conc-type">Metro de Lima</div><div class="conc-n">01</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="72" height="44" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="70" height="42" rx="5" fill="#002060" stroke="#1a3a80" stroke-width="1.5"/>
+  <path d="M8 32L8 12L16 24L24 12L24 32" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+  <text x="28" y="30" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="1">RVIAL</text>
+  <rect x="28" y="35" width="36" height="1.5" rx=".75" fill="#4488ff" opacity=".6"/>
+</svg></div><div class="conc-name">Norvial</div><div class="conc-type">Carretera Norte</div><div class="conc-n">02</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="72" height="44" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="70" height="42" rx="5" fill="#004080" stroke="#1a5aaa" stroke-width="1.5"/>
+  <path d="M8 14 Q8 22 14 22 Q20 22 20 30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <text x="26" y="30" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="1">URVIAL</text>
+  <rect x="26" y="35" width="38" height="1.5" rx=".75" fill="#55aaff" opacity=".6"/>
+</svg></div><div class="conc-name">Survial</div><div class="conc-type">Carretera Sur</div><div class="conc-n">03</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="62" height="42" rx="5" fill="#001540" stroke="#0a2a60" stroke-width="1.5"/>
+  <path d="M8 34L22 14L36 34" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <path d="M28 34L39 20L50 34" stroke="#4488ff" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <text x="6" y="43" font-family="system-ui,Arial,sans-serif" font-weight="700" font-size="7" fill="rgba(255,255,255,.5)" letter-spacing="2">CANCHAQUE</text>
+</svg></div><div class="conc-name">Canchaque</div><div class="conc-type">Concesión Vial</div><div class="conc-n">04</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="62" height="42" rx="5" fill="#001f5c" stroke="#0a306e" stroke-width="1.5"/>
+  <path d="M24 8L16 24h8l-4 12 16-20H28l6-16z" fill="#4da6ff"/>
+  <text x="36" y="20" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="11" fill="#ffffff">UNNA</text>
+  <text x="36" y="33" font-family="system-ui,Arial,sans-serif" font-weight="600" font-size="9" fill="#4da6ff" letter-spacing="1">ENERGÍA</text>
+</svg></div><div class="conc-name">UNNA Energía</div><div class="conc-type">Energía</div><div class="conc-n">05</div></div>
       <!-- set B (duplicate for loop) -->
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l3-10h12l3 10H3z"/><path d="M7 17v2m10-2v2"/><rect x="9" y="11" width="6" height="4"/></svg></div><div class="conc-name">Línea 1</div><div class="conc-type">Metro de Lima</div><div class="conc-n">01</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 17Q6 10 12 12Q18 14 22 7"/><circle cx="5" cy="17" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="9" r="1.5" fill="currentColor"/></svg></div><div class="conc-name">Norvial</div><div class="conc-type">Carretera Norte</div><div class="conc-n">02</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 7Q6 14 12 12Q18 10 22 17"/><circle cx="5" cy="7" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="17" r="1.5" fill="currentColor"/></svg></div><div class="conc-name">Survial</div><div class="conc-type">Carretera Sur</div><div class="conc-n">03</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L20 20L12 16L4 20Z"/></svg></div><div class="conc-name">Canchaque</div><div class="conc-type">Concesión Vial</div><div class="conc-n">04</div></div>
-      <div class="conc-card"><div class="conc-ico"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 3L10 14H13L11 21L18 10H14L17 3Z" stroke-linejoin="round"/></svg></div><div class="conc-name">UNNA Energía</div><div class="conc-type">Energía</div><div class="conc-n">05</div></div>
-    </div>
+      <div class="conc-card"><div class="conc-ico"><svg width="56" height="44" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="54" height="42" rx="5" fill="#0a1740" stroke="#1a3a7a" stroke-width="1.5"/>
+  <text x="6" y="30" font-family="system-ui,Arial,sans-serif" font-weight="900" font-size="22" fill="#ffffff">L</text>
+  <text x="22" y="30" font-family="system-ui,Arial,sans-serif" font-weight="900" font-size="22" fill="#e30613">1</text>
+  <rect x="39" y="10" width="3.5" height="24" rx="1.5" fill="#e30613" opacity=".9"/>
+  <rect x="44" y="15" width="3.5" height="19" rx="1.5" fill="#e30613" opacity=".7"/>
+  <rect x="49" y="12" width="3.5" height="22" rx="1.5" fill="#e30613" opacity=".5"/>
+</svg></div><div class="conc-name">Línea 1</div><div class="conc-type">Metro de Lima</div><div class="conc-n">01</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="72" height="44" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="70" height="42" rx="5" fill="#002060" stroke="#1a3a80" stroke-width="1.5"/>
+  <path d="M8 32L8 12L16 24L24 12L24 32" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+  <text x="28" y="30" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="1">RVIAL</text>
+  <rect x="28" y="35" width="36" height="1.5" rx=".75" fill="#4488ff" opacity=".6"/>
+</svg></div><div class="conc-name">Norvial</div><div class="conc-type">Carretera Norte</div><div class="conc-n">02</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="72" height="44" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="70" height="42" rx="5" fill="#004080" stroke="#1a5aaa" stroke-width="1.5"/>
+  <path d="M8 14 Q8 22 14 22 Q20 22 20 30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <text x="26" y="30" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="1">URVIAL</text>
+  <rect x="26" y="35" width="38" height="1.5" rx=".75" fill="#55aaff" opacity=".6"/>
+</svg></div><div class="conc-name">Survial</div><div class="conc-type">Carretera Sur</div><div class="conc-n">03</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="62" height="42" rx="5" fill="#001540" stroke="#0a2a60" stroke-width="1.5"/>
+  <path d="M8 34L22 14L36 34" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <path d="M28 34L39 20L50 34" stroke="#4488ff" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <text x="6" y="43" font-family="system-ui,Arial,sans-serif" font-weight="700" font-size="7" fill="rgba(255,255,255,.5)" letter-spacing="2">CANCHAQUE</text>
+</svg></div><div class="conc-name">Canchaque</div><div class="conc-type">Concesión Vial</div><div class="conc-n">04</div></div>
+      <div class="conc-card"><div class="conc-ico"><svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="62" height="42" rx="5" fill="#001f5c" stroke="#0a306e" stroke-width="1.5"/>
+  <path d="M24 8L16 24h8l-4 12 16-20H28l6-16z" fill="#4da6ff"/>
+  <text x="36" y="20" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="11" fill="#ffffff">UNNA</text>
+  <text x="36" y="33" font-family="system-ui,Arial,sans-serif" font-weight="600" font-size="9" fill="#4da6ff" letter-spacing="1">ENERGÍA</text>
+</svg></div><div class="conc-name">UNNA Energía</div><div class="conc-type">Energía</div><div class="conc-n">05</div></div>
+        </div>
   </div>
 </section>
 
@@ -4279,4 +4505,3 @@ setActive();
 </script>
 </body>
 </html>
-
