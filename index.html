@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AENZA — Grupo Empresarial Peruano</title>
+<title>AENZA — Pagina Web</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
 <style>
@@ -3692,6 +3692,135 @@ body:has(button:hover) #c-dot { opacity: 0; }
   transform: none;
 }
 
+
+/* ── Concesionaria carousel: solo logo, sin card ni texto ── */
+.conc-card {
+  flex-shrink: 0;
+  width: 160px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+  cursor: default;
+  transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+}
+.conc-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.conc-card::before { display: none !important; }
+
+/* Hide name, type, number */
+.conc-name,
+.conc-type,
+.conc-n { display: none !important; }
+
+/* Logo area: full width, centered */
+.conc-ico {
+  width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.conc-logo-img {
+  width: auto;
+  max-width: 120px;
+  height: 44px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(.5);
+  transition: filter .45s cubic-bezier(.16,1,.3,1), transform .4s cubic-bezier(.16,1,.3,1);
+  display: block;
+}
+.conc-card:hover .conc-logo-img {
+  filter: grayscale(0) brightness(1);
+}
+/* fallback SVG same treatment */
+.conc-logo-fallback svg {
+  filter: grayscale(1) brightness(.5);
+  transition: filter .45s cubic-bezier(.16,1,.3,1);
+}
+.conc-card:hover .conc-logo-fallback svg {
+  filter: grayscale(0) brightness(1);
+}
+
+/* fade edges on carousel */
+.carousel-wrap::before { background: linear-gradient(to right, var(--surface), transparent) !important; }
+.carousel-wrap::after  { background: linear-gradient(to left,  var(--surface), transparent) !important; }
+
+
+/* ── Concesionaria logos: más grandes, carrusel más rápido ── */
+.conc-card {
+  width: 200px !important;
+  padding: 20px 28px !important;
+}
+.conc-logo-img {
+  max-width: 150px !important;
+  height: 64px !important;
+}
+.conc-logo-fallback svg {
+  width: 140px !important;
+  height: 56px !important;
+}
+.carousel-track {
+  animation: carScroll 12s linear infinite !important;
+}
+
+
+/* ── Logos concesionarias: difuminación más suave ── */
+.conc-logo-img {
+  filter: grayscale(1) brightness(.75) !important;
+}
+.conc-card:hover .conc-logo-img {
+  filter: grayscale(0) brightness(1) !important;
+}
+.conc-logo-fallback svg {
+  filter: grayscale(1) brightness(.75) !important;
+}
+.conc-card:hover .conc-logo-fallback svg {
+  filter: grayscale(0) brightness(1) !important;
+}
+
+
+/* ── Reducir overlay oscuro en todas las imágenes ── */
+
+/* Hero slides */
+.sl-img { filter: brightness(.65) saturate(.9) !important; }
+.sl-img::after {
+  background:
+    linear-gradient(to right, rgba(6,6,14,.6) 0%, rgba(6,6,14,.25) 52%, transparent 100%),
+    linear-gradient(to top, rgba(6,6,14,.35) 0%, transparent 55%) !important;
+}
+
+/* Quiénes hero background */
+.qs-hero-bg { filter: brightness(.72) saturate(.9) !important; }
+@keyframes heroZoomIn { to { transform:scale(1); filter:brightness(.78) saturate(.98) !important } }
+
+/* Pillar panels */
+.qs-ppanel-img img { filter: brightness(.88) saturate(1.05) !important; }
+.qs-ppanel.active .qs-ppanel-img img { filter: brightness(.92) saturate(1.1) !important; }
+
+/* Empresa panels */
+.emp-panel-bg { filter: brightness(.55) saturate(.85) !important; }
+.emp-panel:hover .emp-panel-bg { filter: brightness(.45) saturate(.9) !important; }
+
+/* Noticias */
+.nv4-photo { filter: brightness(.5) saturate(.8) !important; }
+.nv4-item:hover .nv4-photo { filter: brightness(.4) saturate(.85) !important; }
+.nv4-item::after {
+  background: linear-gradient(to top, rgba(9,9,15,.88) 0%, rgba(9,9,15,.3) 55%, rgba(9,9,15,.05) 100%) !important;
+}
+
 </style>
 </head>
 <body class="over-dark">
@@ -3738,7 +3867,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 1 -->
   <div class="sl on">
-    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&auto=format&fit=crop&q=85')"></div>
+    <div class="sl-img" style="background-image:url('infra 2.jpg')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Infraestructura · Energía · Inmobiliario</div>
       <h1 class="sl-h1">
@@ -3756,7 +3885,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 2 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1800&auto=format&fit=crop&q=85')"></div>
+    <div class="sl-img" style="background-image:url('Patio SJL 020.JPG')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sectores Estratégicos</div>
       <h1 class="sl-h1">
@@ -3773,7 +3902,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 3 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1800&auto=format&fit=crop&q=85')"></div>
+    <div class="sl-img" style="background-image:url('editadas_6.JPG')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sostenibilidad</div>
       <h1 class="sl-h1">
@@ -4013,7 +4142,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
         <div class="emp-panel-tag">Energía Renovable</div>
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Energía -->
-          <img class="emp-logo-img" src="Logo_de_Viva.png" alt="UNNA Energía"
+          <img class="emp-logo-img" src="logo-unna-energia.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div style="display:none;align-items:center;gap:4px">
             <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M16 3L11 16h5l-3 9 9-14h-6l4-8z" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/></svg>
