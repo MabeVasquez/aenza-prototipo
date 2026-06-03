@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AENZA — Pagina Web</title>
+<title>AENZA — Grupo Empresarial Peruano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
 <style>
@@ -3821,6 +3821,480 @@ body:has(button:hover) #c-dot { opacity: 0; }
   background: linear-gradient(to top, rgba(9,9,15,.88) 0%, rgba(9,9,15,.3) 55%, rgba(9,9,15,.05) 100%) !important;
 }
 
+
+/* ════════════════════════════════════════════════
+   1. TEXTO BLANCO GENÉRICO — fondo oscuro en toda la página
+════════════════════════════════════════════════ */
+
+/* Cualquier texto --light o --body sobre fondo oscuro */
+#empresas .label,
+#empresas .emp-hdr-sub,
+#noticias .label,
+#concesionarias .label,
+.cta-band .cta-sup,
+.qs-hero-text .qs-eyebrow,
+.qs-ppanel-tag,
+.qs-ppanel-p,
+.qs-ppanel-items li,
+.emp-panel-sector,
+.emp-panel-tag,
+.emp-bb-sub,
+.nv4-date,
+.nv4-cat,
+.ft-col-v2 h5 { color: rgba(255,255,255,.65) !important; }
+
+/* Textos secundarios que deben ser blancos sobre oscuro */
+.emp-panel-stat-lbl,
+.emp-panel-desc { color: rgba(255,255,255,.6) !important; }
+
+/* Subtítulos y body text sobre fondos claros — ligeramente más oscuros */
+:root {
+  --body:  #3d3d52;
+  --light: #6e6e88;
+}
+
+/* ════════════════════════════════════════════════
+   2. LOGOS EMPRESA — más grandes, sin filtro gris
+════════════════════════════════════════════════ */
+.emp-panel-logo {
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  transition: transform .5s cubic-bezier(.16,1,.3,1) !important;
+}
+.emp-panel:hover .emp-panel-logo {
+  background: transparent !important;
+  border-color: transparent !important;
+  transform: translateY(-3px) !important;
+}
+.emp-logo-img {
+  width: auto !important;
+  height: 68px !important;
+  max-height: 68px !important;
+  object-fit: contain !important;
+  filter: none !important;
+  display: block !important;
+}
+
+/* ════════════════════════════════════════════════
+   3. CONCESIONARIAS — logos enormes, velocidad, flecha
+════════════════════════════════════════════════ */
+#concesionarias { background: var(--surface); }
+
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-wrap::before { background: linear-gradient(to right, var(--surface), transparent) !important; }
+.carousel-wrap::after  { background: linear-gradient(to left,  var(--surface), transparent) !important; }
+
+.carousel-track {
+  animation: carScroll 8s linear infinite !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.carousel-track.paused { animation-play-state: paused !important; }
+
+.conc-card {
+  width: 220px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 20px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+}
+.conc-card:hover { transform: translateY(-6px) scale(1.05) !important; box-shadow: none !important; border-color: transparent !important; }
+.conc-card::before { display: none !important; }
+.conc-name, .conc-type, .conc-n { display: none !important; }
+
+.conc-ico {
+  width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.conc-logo-img {
+  width: auto !important;
+  max-width: 180px !important;
+  height: 80px !important;
+  object-fit: contain !important;
+  filter: grayscale(1) brightness(.7) !important;
+  transition: filter .45s cubic-bezier(.16,1,.3,1), transform .4s !important;
+  display: block !important;
+}
+.conc-card:hover .conc-logo-img {
+  filter: grayscale(0) brightness(1) !important;
+}
+.conc-logo-fallback { display: none; align-items: center; justify-content: center; }
+.conc-logo-fallback svg {
+  width: 160px !important; height: 72px !important;
+  filter: grayscale(1) brightness(.7);
+  transition: filter .45s cubic-bezier(.16,1,.3,1);
+}
+.conc-card:hover .conc-logo-fallback svg { filter: grayscale(0) brightness(1); }
+
+/* ── Flecha pausa/play ── */
+.conc-controls {
+  display: flex; justify-content: center;
+  margin-top: 32px; gap: 10px;
+}
+.conc-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--light);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: border-color .22s, color .22s, background .22s, transform .2s;
+}
+.conc-btn:hover {
+  border-color: var(--blue); color: var(--blue);
+  background: rgba(3,69,245,.06); transform: scale(1.08);
+}
+
+
+/* ════════════════════════════════════════════════════
+   CONTRASTE CORRECTO: negro sobre blanco, blanco sobre negro
+════════════════════════════════════════════════════ */
+
+/* ── SECCIONES CON FONDO BLANCO / CLARO ──────────────────
+   #quienes, #concesionarias (.surface), .cta-band no aplica
+   Texto normal: var(--ink) títulos, var(--body) párrafos, var(--blue) acentos
+────────────────────────────────────────────────────── */
+
+/* Quiénes — fondo blanco */
+#quienes .qs-eyebrow           { color: var(--blue) !important; }
+#quienes .qs-big-title         { color: var(--ink)  !important; }
+#quienes .qs-big-title em      { color: var(--blue) !important; }
+#quienes .qs-intro-text        { color: #55556e     !important; }
+#quienes .qs-ptab-label        { color: var(--ink)  !important; }
+#quienes .qs-ptab-sub          { color: #9393a8     !important; }
+#quienes .qs-ppanel-tag        { color: var(--blue) !important; }
+#quienes .qs-ppanel-h          { color: var(--ink)  !important; }
+#quienes .qs-ppanel-p          { color: #55556e     !important; }
+#quienes .qs-ppanel-items li   { color: #55556e     !important; }
+#quienes .qs-ppanel-cta        { color: var(--blue) !important; }
+#quienes .qs-ppanel-body       { background: #fff   !important; }
+
+/* Concesionarias — fondo var(--surface) casi blanco */
+#concesionarias .label         { color: var(--blue) !important; }
+#concesionarias .h2            { color: var(--ink)  !important; }
+#concesionarias .h2 em         { color: var(--blue) !important; }
+#concesionarias .body-text     { color: #55556e     !important; }
+
+/* ── SECCIONES CON FONDO OSCURO (#0a0a12) ─────────────────
+   #empresas, #noticias
+────────────────────────────────────────────────────── */
+
+/* Empresas header — fondo var(--ink) */
+#empresas .label               { color: rgba(255,255,255,.5)  !important; }
+#empresas .h2                  { color: #fff                  !important; }
+#empresas .h2 em               { color: rgba(255,255,255,.75) !important; }
+#empresas .emp-hdr-sub         { color: rgba(255,255,255,.55) !important; }
+#empresas .text-link           { color: rgba(255,255,255,.5)  !important; border-bottom-color: rgba(255,255,255,.15) !important; }
+#empresas .text-link:hover     { color: #fff !important; border-bottom-color: rgba(255,255,255,.5) !important; }
+
+/* Empresa panels — fondo oscuro con foto */
+.emp-panel-tag                 { color: rgba(255,255,255,.55) !important; }
+.emp-panel-name                { color: #fff !important; }
+.emp-panel-sector              { color: rgba(255,255,255,.45) !important; }
+.emp-panel-stat-val            { color: #fff !important; }
+.emp-panel-stat-unit           { color: var(--blue) !important; }
+.emp-panel-stat-lbl            { color: rgba(255,255,255,.5) !important; }
+.emp-panel-desc                { color: rgba(255,255,255,.6) !important; }
+.emp-panel-link                { color: #fff !important; }
+.emp-bb-name                   { color: rgba(255,255,255,.7) !important; }
+.emp-bb-sub                    { color: rgba(255,255,255,.35) !important; }
+
+/* Noticias — fondo var(--ink) */
+#noticias .label               { color: rgba(255,255,255,.45) !important; }
+#noticias .h2                  { color: #fff                  !important; }
+#noticias .h2 em               { color: rgba(255,255,255,.75) !important; }
+#noticias .text-link           { color: rgba(255,255,255,.45) !important; border-bottom-color: rgba(255,255,255,.15) !important; }
+.nv4-cat                       { color: var(--blue) !important; }
+.nv4-date                      { color: rgba(255,255,255,.4) !important; }
+.nv4-h                         { color: rgba(255,255,255,.8) !important; }
+.nv4-item:hover .nv4-h         { color: #fff !important; }
+.nv4-pill                      { color: rgba(255,255,255,.45) !important; }
+.nv4-ticker-lbl                { color: var(--blue) !important; }
+.nv4-tick span                 { color: rgba(255,255,255,.4) !important; }
+
+/* Footer — fondo #07080f */
+#footer .ft-logo-big           { color: #fff !important; }
+#footer .ft-tagline-italic     { color: rgba(255,255,255,.45) !important; }
+#footer .ft-col-v2 h5          { color: rgba(255,255,255,.4) !important; }
+#footer .ft-col-v2 a           { color: rgba(255,255,255,.55) !important; }
+#footer .ft-col-v2 a:hover     { color: #fff !important; }
+#footer .ft-contact-row span,
+#footer .ft-contact-row a      { color: rgba(255,255,255,.55) !important; }
+#footer .ft-bottom-bar p,
+#footer .ft-bottom-bar a       { color: rgba(255,255,255,.3) !important; }
+
+/* CTA band — fondo var(--blue) */
+.cta-band .cta-sup             { color: rgba(255,255,255,.55) !important; }
+.cta-band .cta-title           { color: #fff !important; }
+.cta-band .cta-title em        { color: rgba(255,255,255,.8) !important; }
+
+
+/* ════════════════════════════════════════════════════════
+   CONTRASTE DEFINITIVO — negro/azul sobre blanco, blanco sobre negro
+════════════════════════════════════════════════════════ */
+
+/* ── Tokens base más oscuros para mejor legibilidad ── */
+:root {
+  --body:  #3a3a52 !important;
+  --light: #5e5e7a !important;
+}
+
+/* ══ FONDO BLANCO / CLARO — letras oscuras ══ */
+
+/* Quiénes Somos */
+#quienes                                { background: #fff; }
+#quienes .qs-eyebrow                    { color: var(--blue) !important; }
+#quienes .qs-big-title                  { color: #0a0a12 !important; }
+#quienes .qs-big-title em               { color: var(--blue) !important; }
+#quienes .qs-intro-text                 { color: #3a3a52 !important; }
+#quienes .qs-ppanel-body                { background: #fff !important; }
+#quienes .qs-ppanel-tag                 { color: var(--blue) !important; }
+#quienes .qs-ppanel-h                   { color: #0a0a12 !important; }
+#quienes .qs-ppanel-p                   { color: #3a3a52 !important; }
+#quienes .qs-ppanel-items li            { color: #3a3a52 !important; }
+#quienes .qs-ppanel-cta                 { color: var(--blue) !important; }
+#quienes .qs-ptab-label                 { color: #0a0a12 !important; }
+#quienes .qs-ptab-sub                   { color: #5e5e7a !important; }
+#quienes .qs-ptab:hover,
+#quienes .qs-ptab.active                { background: rgba(3,69,245,.04) !important; }
+#quienes .qs-pillars-nav                { background: #fff !important; }
+
+/* Concesionarias — fondo #f6f6f9 */
+#concesionarias .label                  { color: var(--blue) !important; }
+#concesionarias .h2                     { color: #0a0a12 !important; }
+#concesionarias .h2 em                  { color: var(--blue) !important; }
+#concesionarias .body-text              { color: #3a3a52 !important; }
+
+/* CTA band — fondo azul */
+.cta-band .cta-sup                      { color: rgba(255,255,255,.6) !important; }
+.cta-band .cta-title                    { color: #fff !important; }
+.cta-band .cta-title em                 { color: rgba(255,255,255,.8) !important; }
+
+/* ══ FONDO NEGRO / OSCURO — letras blancas ══ */
+
+/* Empresas — sección fondo var(--ink) */
+#empresas                               { background: #0a0a12 !important; }
+#empresas .label                        { color: rgba(255,255,255,.45) !important; }
+#empresas .h2                           { color: #fff !important; }
+#empresas .h2 em                        { color: rgba(255,255,255,.7) !important; }
+#empresas .emp-hdr-sub                  { color: rgba(255,255,255,.5) !important; }
+#empresas .text-link                    { color: rgba(255,255,255,.45) !important; border-bottom-color: rgba(255,255,255,.15) !important; }
+#empresas .text-link:hover              { color: #fff !important; }
+
+/* Paneles empresa */
+.emp-panel-tag                          { color: rgba(255,255,255,.5) !important; }
+.emp-panel-name                         { color: #fff !important; }
+.emp-panel-sector                       { color: rgba(255,255,255,.45) !important; }
+.emp-panel-stat-val                     { color: #fff !important; }
+.emp-panel-stat-unit                    { color: var(--blue) !important; }
+.emp-panel-stat-lbl                     { color: rgba(255,255,255,.45) !important; }
+.emp-panel-desc                         { color: rgba(255,255,255,.6) !important; }
+.emp-panel-link                         { color: #fff !important; }
+.emp-bb-name                            { color: rgba(255,255,255,.7) !important; }
+.emp-bb-sub                             { color: rgba(255,255,255,.35) !important; }
+
+/* Noticias — fondo var(--ink) */
+#noticias                               { background: #0a0a12 !important; }
+#noticias .label                        { color: rgba(255,255,255,.45) !important; }
+#noticias .h2                           { color: #fff !important; }
+#noticias .h2 em                        { color: rgba(255,255,255,.7) !important; }
+#noticias .text-link                    { color: rgba(255,255,255,.45) !important; border-bottom-color: rgba(255,255,255,.15) !important; }
+#noticias .text-link:hover              { color: #fff !important; }
+.nv4-cat                                { color: var(--blue) !important; }
+.nv4-date                               { color: rgba(255,255,255,.4) !important; }
+.nv4-h                                  { color: rgba(255,255,255,.82) !important; }
+.nv4-item:hover .nv4-h                  { color: #fff !important; }
+.nv4-pill                               { color: rgba(255,255,255,.5) !important; }
+.nv4-link                               { color: rgba(255,255,255,.5) !important; }
+.nv4-ticker-lbl                         { color: var(--blue) !important; }
+.nv4-tick span                          { color: rgba(255,255,255,.4) !important; }
+.nv4-tick:hover span                    { color: rgba(255,255,255,.7) !important; }
+
+/* Footer — fondo #07080f */
+#footer .ft-logo-big                    { color: #fff !important; }
+#footer .ft-tagline-italic              { color: rgba(255,255,255,.4) !important; }
+#footer .ft-col-v2 h5                   { color: rgba(255,255,255,.38) !important; }
+#footer .ft-col-v2 a                    { color: rgba(255,255,255,.55) !important; }
+#footer .ft-col-v2 a:hover              { color: #fff !important; }
+#footer .ft-contact-row span,
+#footer .ft-contact-row a              { color: rgba(255,255,255,.55) !important; }
+#footer .ft-contact-row a:hover        { color: #fff !important; }
+#footer .ft-bottom-bar p,
+#footer .ft-bottom-bar a              { color: rgba(255,255,255,.3) !important; }
+
+/* ════════════════════════════════════════════════════════
+   CARRUSEL CONCESIONARIAS — logos enormes
+════════════════════════════════════════════════════════ */
+.carousel-track {
+  animation: carScroll 8s linear infinite !important;
+  gap: 64px !important;
+  padding: 20px 0 !important;
+  align-items: center !important;
+}
+.conc-card {
+  width: 260px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+}
+.conc-card:hover  { transform: translateY(-6px) scale(1.06) !important; box-shadow: none !important; border-color: transparent !important; }
+.conc-card::before { display: none !important; }
+.conc-name, .conc-type, .conc-n { display: none !important; }
+.conc-ico {
+  width: 100% !important; height: auto !important;
+  background: transparent !important; border: none !important;
+  padding: 0 !important; margin: 0 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
+.conc-logo-img {
+  width: auto !important;
+  max-width: 220px !important;
+  height: 100px !important;
+  object-fit: contain !important;
+  filter: grayscale(1) brightness(.65) !important;
+  transition: filter .45s cubic-bezier(.16,1,.3,1), transform .4s !important;
+  display: block !important;
+}
+.conc-card:hover .conc-logo-img {
+  filter: grayscale(0) brightness(1) !important;
+}
+.conc-logo-fallback {
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.conc-logo-fallback svg {
+  width: 200px !important;
+  height: 90px !important;
+  filter: grayscale(1) brightness(.65) !important;
+  transition: filter .45s cubic-bezier(.16,1,.3,1) !important;
+}
+.conc-card:hover .conc-logo-fallback svg {
+  filter: grayscale(0) brightness(1) !important;
+}
+/* when img fails, show fallback */
+.conc-logo-fallback.show {
+  display: flex !important;
+}
+
+
+/* ── Bottom bar: logo + eslogan ── */
+.emp-bb-item {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 24px 44px !important;
+  gap: 6px !important;
+}
+.emp-bb-logo {
+  height: 36px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .7;
+  transition: opacity .3s;
+  display: block;
+}
+.emp-bb-item:hover .emp-bb-logo { opacity: 1; }
+.emp-bb-fallback {
+  display: none;
+  font-size: .88rem; font-weight: 800; color: rgba(255,255,255,.6);
+  transition: color .25s;
+}
+.emp-bb-item:hover .emp-bb-fallback { color: #fff; }
+.emp-bb-tagline {
+  font-size: .72rem; font-weight: 400;
+  color: rgba(255,255,255,.35);
+  font-style: italic;
+  font-family: var(--serif);
+  letter-spacing: .01em;
+  transition: color .25s;
+}
+.emp-bb-item:hover .emp-bb-tagline { color: rgba(255,255,255,.6); }
+.emp-bb-arrow {
+  position: absolute;
+  right: 28px; bottom: 28px;
+  margin-left: 0 !important;
+}
+
+
+/* ── Carousel: hover pauses, side arrows ── */
+.carousel-wrap {
+  position: relative !important;
+}
+/* Pause on hover over the whole wrap */
+.carousel-wrap:hover .carousel-track {
+  animation-play-state: paused !important;
+}
+
+/* Side arrows */
+.conc-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(9,9,15,.12);
+  transition: background .22s, color .22s, transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s;
+  opacity: 0;
+  transition: opacity .3s, background .22s, color .22s, transform .22s, box-shadow .22s;
+}
+.carousel-wrap:hover .conc-arrow { opacity: 1; }
+.conc-arrow:hover {
+  background: var(--blue); color: #fff;
+  box-shadow: 0 8px 24px rgba(3,69,245,.25);
+  transform: translateY(-50%) scale(1.08);
+}
+.conc-arrow-left  { left:  16px; }
+.conc-arrow-right { right: 16px; }
+
+
+/* ── Reveal panel: altura suficiente para todo el contenido ── */
+.emp-panel-reveal {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .7s cubic-bezier(.16,1,.3,1), opacity .5s .1s !important;
+}
+.emp-panel:hover .emp-panel-reveal {
+  max-height: 500px !important;
+  opacity: 1 !important;
+}
+
 </style>
 </head>
 <body class="over-dark">
@@ -3867,7 +4341,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 1 -->
   <div class="sl on">
-    <div class="sl-img" style="background-image:url('infra 2.jpg')"></div>
+    <div class="sl-img" style="background-image:url('Patio VES 005.JPG')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Infraestructura · Energía · Inmobiliario</div>
       <h1 class="sl-h1">
@@ -3885,7 +4359,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 2 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('Patio SJL 020.JPG')"></div>
+    <div class="sl-img" style="background-image:url('editadas_6.JPG')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sectores Estratégicos</div>
       <h1 class="sl-h1">
@@ -3902,7 +4376,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   <!-- Slide 3 -->
   <div class="sl">
-    <div class="sl-img" style="background-image:url('editadas_6.JPG')"></div>
+    <div class="sl-img" style="background-image:url('Patio SJL 020.JPG')"></div>
     <div class="sl-content">
       <div class="sl-tag"><div class="sl-tag-line"></div>Sostenibilidad</div>
       <h1 class="sl-h1">
@@ -3963,7 +4437,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       </div>
     </div>
     <div class="qs-hero-visual">
-      <div class="qs-hero-bg" style="background-image:url('Patio VES 005.JPG')"></div>
+      <div class="qs-hero-bg" style="background-image:url('infra 2.jpg')"></div>
       <!-- Floating KPI cards -->
       <div class="qs-float-kpis" id="metrics">
         <div class="qs-fkpi">
@@ -4106,19 +4580,16 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">01</div>
       <div class="emp-panel-body">
-        <div class="emp-panel-tag">Infraestructura Vial</div>
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Infraestructura -->
-          <img class="emp-logo-img" src="unnainfra.png" alt="UNNA Infraestructura"
+          <img class="emp-logo-img" src="logo-unna-infraestructura.png" alt="UNNA Infraestructura"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div style="display:none;align-items:center;gap:4px">
-            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M3 25V13L14 6L25 13V25" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="17" width="8" height="8" stroke="#fff" stroke-width="1.8"/></svg>
-            <span style="color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.02em">UNNA</span>
-          </div>
+          
         </div>
-        <div class="emp-panel-name">UNNA Infraestructura</div>
-        <div class="emp-panel-sector">Carreteras · Túneles · Metro</div>
         <div class="emp-panel-reveal">
+          <div class="emp-panel-tag">Infraestructura Vial</div>
+          <div class="emp-panel-name">UNNA Infraestructura</div>
+          <div class="emp-panel-sector">Carreteras · Túneles · Metro</div>
           <div class="emp-panel-stat">
             <div class="emp-panel-stat-val">1,200</div>
             <div class="emp-panel-stat-unit">km</div>
@@ -4139,19 +4610,16 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">02</div>
       <div class="emp-panel-body">
-        <div class="emp-panel-tag">Energía Renovable</div>
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Energía -->
-          <img class="emp-logo-img" src="unnaene.png" alt="UNNA Energía"
+          <img class="emp-logo-img" src="logo-unna-energia.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div style="display:none;align-items:center;gap:4px">
-            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M16 3L11 16h5l-3 9 9-14h-6l4-8z" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/></svg>
-            <span style="color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.02em">UNNA</span>
-          </div>
+          
         </div>
-        <div class="emp-panel-name">UNNA Energía</div>
-        <div class="emp-panel-sector">Generación · Transmisión · Renovables</div>
         <div class="emp-panel-reveal">
+          <div class="emp-panel-tag">Energía Renovable</div>
+          <div class="emp-panel-name">UNNA Energía</div>
+          <div class="emp-panel-sector">Generación · Transmisión · Renovables</div>
           <div class="emp-panel-stat">
             <div class="emp-panel-stat-val">850</div>
             <div class="emp-panel-stat-unit">MW</div>
@@ -4172,18 +4640,16 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-accent"></div>
       <div class="emp-panel-wm">03</div>
       <div class="emp-panel-body">
-        <div class="emp-panel-tag">Desarrollo Inmobiliario</div>
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo VIVA -->
-          <img class="emp-logo-img" src="viva.png" alt="VIVA"
+          <img class="emp-logo-img" src="logo-viva.png" alt="VIVA"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div style="display:none;align-items:center;">
-            <span style="color:#fff;font-size:1.2rem;font-weight:800;letter-spacing:.08em">VIVA</span>
-          </div>
+          
         </div>
-        <div class="emp-panel-name">VIVA</div>
-        <div class="emp-panel-sector">Residencial · Comercial · Uso Mixto</div>
         <div class="emp-panel-reveal">
+          <div class="emp-panel-tag">Desarrollo Inmobiliario</div>
+          <div class="emp-panel-name">VIVA</div>
+          <div class="emp-panel-sector">Residencial · Comercial · Uso Mixto</div>
           <div class="emp-panel-stat">
             <div class="emp-panel-stat-val">+10</div>
             <div class="emp-panel-stat-unit">años</div>
@@ -4203,27 +4669,24 @@ body:has(button:hover) #c-dot { opacity: 0; }
   <!-- Bottom info bar -->
   <div class="emp-bottom-bar">
     <a href="https://www.unna.com.pe" target="_blank" class="emp-bb-item">
-      <div class="emp-bb-num">01</div>
-      <div>
-        <div class="emp-bb-name">UNNA Infraestructura</div>
-        <div class="emp-bb-sub">Infraestructura Vial</div>
-      </div>
+      <img class="emp-bb-logo" src="unnainfra.png" alt="UNNA Infraestructura"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">UNNA Infraestructura</span>
+      <div class="emp-bb-tagline">Conectando el Perú de norte a sur</div>
       <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
     </a>
     <a href="https://www.unnaenergia.com.pe" target="_blank" class="emp-bb-item">
-      <div class="emp-bb-num">02</div>
-      <div>
-        <div class="emp-bb-name">UNNA Energía</div>
-        <div class="emp-bb-sub">Energía Renovable</div>
-      </div>
+      <img class="emp-bb-logo" src="unnaene.png" alt="UNNA Energía"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">UNNA Energía</span>
+      <div class="emp-bb-tagline">Liderando la transición energética</div>
       <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
     </a>
     <a href="http://www.viva.com.pe" target="_blank" class="emp-bb-item">
-      <div class="emp-bb-num">03</div>
-      <div>
-        <div class="emp-bb-name">VIVA</div>
-        <div class="emp-bb-sub">Desarrollo Inmobiliario</div>
-      </div>
+      <img class="emp-bb-logo" src="viva.png" alt="VIVA"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">VIVA</span>
+      <div class="emp-bb-tagline">Construimos hogares para el Perú</div>
       <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
     </a>
   </div>
@@ -4242,6 +4705,12 @@ body:has(button:hover) #c-dot { opacity: 0; }
     </div>
   </div>
   <div class="carousel-wrap reveal d1">
+  <button class="conc-arrow conc-arrow-left" id="carr-prev" aria-label="Anterior">
+    <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
+  </button>
+  <button class="conc-arrow conc-arrow-right" id="carr-next" aria-label="Siguiente">
+    <svg class="ic" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+  </button>
     <div class="carousel-track">
       <!-- set A -->
       <div class="conc-card">
@@ -4291,7 +4760,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="canchaque.png" alt="UNNA Energía"
+          <img class="conc-logo-img" src="logo-unna-e.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="56" height="36" viewBox="0 0 64 44" fill="none"><rect x="1" y="1" width="62" height="42" rx="5" fill="#001f5c"/><path d="M22 8L14 24h8l-4 12 16-20H28l6-16z" fill="#4da6ff"/><text x="34" y="28" font-family="system-ui" font-weight="800" font-size="12" fill="#fff">UNNA</text></svg></div>
         </div>
@@ -4723,6 +5192,38 @@ if (tlEl) {
   }, { threshold: .2 });
   tlIO.observe(tlEl);
 }
+
+
+
+
+/* ══ CAROUSEL ARROWS ══ */
+(function(){
+  const track = document.querySelector('.carousel-track');
+  const prev  = document.getElementById('carr-prev');
+  const next  = document.getElementById('carr-next');
+  if (!track || !prev || !next) return;
+  let offset = 0;
+  function shift(dir) {
+    const card = track.querySelector('.conc-card');
+    const step = card ? card.offsetWidth + 64 : 280;
+    offset += dir * step;
+    track.style.transition = 'transform .5s cubic-bezier(.16,1,.3,1)';
+    track.style.transform  = `translateX(${-offset}px)`;
+    // reset animation after manual scroll
+    track.style.animationPlayState = 'paused';
+    track.style.webkitAnimationPlayState = 'paused';
+    clearTimeout(track._rt);
+    track._rt = setTimeout(() => {
+      track.style.transition  = '';
+      track.style.transform   = '';
+      track.style.animationPlayState = 'running';
+      track.style.webkitAnimationPlayState = 'running';
+      offset = 0;
+    }, 3000);
+  }
+  prev.addEventListener('click', () => shift(-1));
+  next.addEventListener('click', () => shift(1));
+})();
 
 /* ══ ACTIVE NAV ══ */
 const secIds = ['hero','quienes','empresas','concesionarias','noticias','footer'];
