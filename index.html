@@ -4331,6 +4331,39 @@ body:has(button:hover) #c-dot { opacity: 0; }
 .nav-logo-mark { width: 36px !important; height: 36px !important; }
 .nav-logo { font-size: 1.1rem !important; }
 
+
+/* ── Nav logo fallback: color según fondo ── */
+.nav-logo-mark {
+  width: 36px !important; height: 36px !important;
+  transition: stroke .4s;
+}
+/* Sobre hero (transparente): blanco */
+#nav:not(.solid) .nav-logo-mark path,
+#nav:not(.solid) .nav-logo-mark line { stroke: #fff !important; }
+#nav:not(.solid) .nav-logo-text { color: #fff !important; }
+
+/* Sobre fondo blanco (scroll): azul/negro */
+#nav.solid .nav-logo-mark path,
+#nav.solid .nav-logo-mark line { stroke: var(--blue) !important; }
+#nav.solid .nav-logo-text { color: var(--ink) !important; }
+
+.nav-logo-text {
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .05em !important;
+  transition: color .4s;
+}
+
+/* Imágenes: posición relativa correcta */
+.nav-logo { position: relative !important; }
+.nav-logo-img.white {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  transform: translateY(-50%) !important;
+}
+#nav:not(.solid) .nav-logo-img.white { position: relative !important; transform: none !important; }
+
 </style>
 </head>
 <body class="over-dark">
