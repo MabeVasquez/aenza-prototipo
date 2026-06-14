@@ -4295,122 +4295,6 @@ body:has(button:hover) #c-dot { opacity: 0; }
   opacity: 1 !important;
 }
 
-
-/* ── Logo nav más grande + versión blanca/oscura ── */
-.nav-logo {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-}
-.nav-logo-img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  transition: opacity .3s;
-}
-/* Logo oscuro (por defecto sobre fondo blanco al hacer scroll) */
-.nav-logo-img.dark  { opacity: 1; }
-.nav-logo-img.white { opacity: 0; position: absolute; }
-
-/* Cuando nav es transparente (sobre hero): mostrar logo blanco */
-#nav:not(.solid) .nav-logo-img.dark  { opacity: 0; }
-#nav:not(.solid) .nav-logo-img.white { opacity: 1; position: relative; }
-
-/* Cuando nav es sólido (scroll): mostrar logo oscuro */
-#nav.solid .nav-logo-img.dark  { opacity: 1; }
-#nav.solid .nav-logo-img.white { opacity: 0; position: absolute; }
-
-/* Ocultar texto AENZA y SVG mark si hay imagen */
-.nav-logo-has-img .nav-logo-mark,
-.nav-logo-has-img .nav-logo-text { display: none !important; }
-
-
-/* ── Logo nav más grande ── */
-.nav-logo-img { height: 52px !important; }
-.nav-logo-mark { width: 36px !important; height: 36px !important; }
-.nav-logo { font-size: 1.1rem !important; }
-
-
-/* ── Nav logo fallback: color según fondo ── */
-.nav-logo-mark {
-  width: 36px !important; height: 36px !important;
-  transition: stroke .4s;
-}
-/* Sobre hero (transparente): blanco */
-#nav:not(.solid) .nav-logo-mark path,
-#nav:not(.solid) .nav-logo-mark line { stroke: #fff !important; }
-#nav:not(.solid) .nav-logo-text { color: #fff !important; }
-
-/* Sobre fondo blanco (scroll): azul/negro */
-#nav.solid .nav-logo-mark path,
-#nav.solid .nav-logo-mark line { stroke: var(--blue) !important; }
-#nav.solid .nav-logo-text { color: var(--ink) !important; }
-
-.nav-logo-text {
-  font-size: 1.1rem !important;
-  font-weight: 800 !important;
-  letter-spacing: .05em !important;
-  transition: color .4s;
-}
-
-/* Imágenes: posición relativa correcta */
-.nav-logo { position: relative !important; }
-.nav-logo-img.white {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  transform: translateY(-50%) !important;
-}
-#nav:not(.solid) .nav-logo-img.white { position: relative !important; transform: none !important; }
-
-
-/* ── Nav logo: posición correcta ambos estados ── */
-.nav-logo { position: static !important; }
-.nav-logo-img.white,
-.nav-logo-img.dark {
-  position: static !important;
-  transform: none !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-
-/* ── Logo único que cambia de color según fondo ── */
-.nav-logo-img.single {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  /* Sobre hero oscuro: fuerza blanco */
-  filter: brightness(0) invert(1);
-  transition: filter .4s;
-}
-/* Al hacer scroll (nav blanco): color original */
-#nav.solid .nav-logo-img.single {
-  filter: none;
-}
-
-
-/* ── Empresas header: altura compacta ── */
-#empresas { padding: 48px 0 0 !important; }
-.emp-hdr {
-  padding: 0 52px !important;
-  max-width: var(--max) !important;
-  margin: 0 auto 28px !important;
-}
-
-
-/* ── Bottom bar: sin espacio extra ── */
-.emp-bottom-bar { margin-top: 0 !important; }
-#empresas { padding-bottom: 0 !important; }
-
-
-/* ── Eliminar gap entre paneles y bottom bar ── */
-.emp-panels { margin-bottom: 0 !important; }
-.emp-bottom-bar { margin-top: 0 !important; border-top: none !important; }
-#empresas { gap: 0 !important; }
-
 </style>
 </head>
 <body class="over-dark">
@@ -4422,16 +4306,8 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo nav-logo-has-img">
-    <!-- Un solo logo — pon tu archivo aquí. Se vuelve blanco sobre hero y oscuro al hacer scroll -->
-    <img class="nav-logo-img single" src="logo-aenza.png" alt="AENZA"
-         onerror="this.style.display='none'"/>
-    <!-- Fallback SVG si no hay imagen -->
-    <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M2 26L14 2L26 26" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-      <line x1="19" y1="17" x2="27" y2="5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-logo-text" style="display:none">AENZA</span>
+  <a href="#hero" class="nav-logo">
+<img src="tu-logo.png" alt="AENZA" style="height:32px;width:auto;object-fit:contain;">
   </a>
 
   <ul class="nav-links">
@@ -4702,7 +4578,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Infraestructura -->
-          <img class="emp-logo-img" src="logo-unna-infraestructura.png" alt="UNNA Infraestructura"
+          <img class="emp-logo-img" src="unnainfra.png" alt="UNNA Infraestructura"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4732,7 +4608,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Energía -->
-          <img class="emp-logo-img" src="logo-unna-energia.png" alt="UNNA Energía"
+          <img class="emp-logo-img" src="unnaene.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4762,7 +4638,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo VIVA -->
-          <img class="emp-logo-img" src="logo-viva.png" alt="VIVA"
+          <img class="emp-logo-img" src="viva.png" alt="VIVA"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4784,6 +4660,31 @@ body:has(button:hover) #c-dot { opacity: 0; }
       </div>
     </div>
 
+  </div>
+
+  <!-- Bottom info bar -->
+  <div class="emp-bottom-bar">
+    <a href="https://www.unna.com.pe" target="_blank" class="emp-bb-item">
+      <img class="emp-bb-logo" src="unnainfra.png" alt="UNNA Infraestructura"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">UNNA Infraestructura</span>
+      <div class="emp-bb-tagline">Conectando el Perú de norte a sur</div>
+      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
+    </a>
+    <a href="https://www.unnaenergia.com.pe" target="_blank" class="emp-bb-item">
+      <img class="emp-bb-logo" src="unnaene.png" alt="UNNA Energía"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">UNNA Energía</span>
+      <div class="emp-bb-tagline">Liderando la transición energética</div>
+      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
+    </a>
+    <a href="http://www.viva.com.pe" target="_blank" class="emp-bb-item">
+      <img class="emp-bb-logo" src="viva.png" alt="VIVA"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="emp-bb-fallback">VIVA</span>
+      <div class="emp-bb-tagline">Construimos hogares para el Perú</div>
+      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
+    </a>
   </div>
 
 </section>
@@ -4811,7 +4712,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="logo-linea1.png" alt="Línea 1"
+          <img class="conc-logo-img" src="linea 1.png" alt="Línea 1"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="48" height="36" viewBox="0 0 56 44" fill="none"><rect x="1" y="1" width="54" height="42" rx="5" fill="#0a1740"/><text x="6" y="30" font-family="system-ui" font-weight="900" font-size="22" fill="#fff">L</text><text x="22" y="30" font-family="system-ui" font-weight="900" font-size="22" fill="#e30613">1</text></svg></div>
         </div>
@@ -4822,7 +4723,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="logo-norvial.png" alt="Norvial"
+          <img class="conc-logo-img" src="canchaque.png" alt="Norvial"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="60" height="36" viewBox="0 0 72 44" fill="none"><rect x="1" y="1" width="70" height="42" rx="5" fill="#002060"/><text x="8" y="30" font-family="system-ui" font-weight="800" font-size="16" fill="#fff" letter-spacing="1">NORVIAL</text></svg></div>
         </div>
@@ -4833,7 +4734,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="logo-survial.png" alt="Survial"
+          <img class="conc-logo-img" src="linea 1.png" alt="Survial"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="60" height="36" viewBox="0 0 72 44" fill="none"><rect x="1" y="1" width="70" height="42" rx="5" fill="#004080"/><text x="8" y="30" font-family="system-ui" font-weight="800" font-size="16" fill="#fff" letter-spacing="1">SURVIAL</text></svg></div>
         </div>
@@ -4844,7 +4745,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="logo-canchaque.png" alt="Canchaque"
+          <img class="conc-logo-img" src="canchaque.png" alt="Canchaque"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="56" height="36" viewBox="0 0 64 44" fill="none"><rect x="1" y="1" width="62" height="42" rx="5" fill="#001540"/><path d="M8 34L24 14L40 34" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" fill="none"/></svg></div>
         </div>
@@ -4855,7 +4756,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="logo-unna-e.png" alt="UNNA Energía"
+          <img class="conc-logo-img" src="unnainfra.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="56" height="36" viewBox="0 0 64 44" fill="none"><rect x="1" y="1" width="62" height="42" rx="5" fill="#001f5c"/><path d="M22 8L14 24h8l-4 12 16-20H28l6-16z" fill="#4da6ff"/><text x="34" y="28" font-family="system-ui" font-weight="800" font-size="12" fill="#fff">UNNA</text></svg></div>
         </div>
@@ -5013,6 +4914,26 @@ body:has(button:hover) #c-dot { opacity: 0; }
       </div>
 
     </div>
+
+    <!-- Ticker -->
+    <div class="nv4-ticker">
+      <div class="nv4-ticker-lbl">En portada</div>
+      <div class="nv4-ticker-scroll">
+        <div class="nv4-ticker-inner">
+          <div class="nv4-tick"><span>AENZA consolida liderazgo en infraestructura del Perú</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>UNNA Energía amplía capacidad renovable al 2026</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>Línea 1 registra cifra récord de pasajeros en 2024</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>VIVA lanza nuevo proyecto residencial en Lima Norte</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>AENZA recibe reconocimiento internacional por sostenibilidad</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>Norvial moderniza tramo norte con nueva tecnología vial</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>AENZA consolida liderazgo en infraestructura del Perú</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>UNNA Energía amplía capacidad renovable al 2026</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>Línea 1 registra cifra récord de pasajeros en 2024</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>VIVA lanza nuevo proyecto residencial en Lima Norte</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>AENZA recibe reconocimiento internacional por sostenibilidad</span><div class="nv4-tsep"></div></div>
+          <div class="nv4-tick"><span>Norvial moderniza tramo norte con nueva tecnología vial</span><div class="nv4-tsep"></div></div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -5025,7 +4946,11 @@ body:has(button:hover) #c-dot { opacity: 0; }
   <div class="ft-top-bar">
     <div>
       <div class="ft-logo-big">
-        <img src="logo-aenza.png" alt="AENZA" style="height:72px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+        <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+          <path d="M2 26L14 2L26 26" stroke="#0345F5" stroke-width="2.4" stroke-linejoin="round"/>
+          <line x1="19" y1="17" x2="27" y2="5" stroke="#0345F5" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        AENZA
       </div>
       <div class="ft-tagline-italic">Construyendo el futuro del Perú desde hace más de 70 años.</div>
     </div>
