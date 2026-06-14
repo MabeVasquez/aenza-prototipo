@@ -4295,6 +4295,36 @@ body:has(button:hover) #c-dot { opacity: 0; }
   opacity: 1 !important;
 }
 
+
+/* ── Logo nav más grande + versión blanca/oscura ── */
+.nav-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: opacity .3s;
+}
+/* Logo oscuro (por defecto sobre fondo blanco al hacer scroll) */
+.nav-logo-img.dark  { opacity: 1; }
+.nav-logo-img.white { opacity: 0; position: absolute; }
+
+/* Cuando nav es transparente (sobre hero): mostrar logo blanco */
+#nav:not(.solid) .nav-logo-img.dark  { opacity: 0; }
+#nav:not(.solid) .nav-logo-img.white { opacity: 1; position: relative; }
+
+/* Cuando nav es sólido (scroll): mostrar logo oscuro */
+#nav.solid .nav-logo-img.dark  { opacity: 1; }
+#nav.solid .nav-logo-img.white { opacity: 0; position: absolute; }
+
+/* Ocultar texto AENZA y SVG mark si hay imagen */
+.nav-logo-has-img .nav-logo-mark,
+.nav-logo-has-img .nav-logo-text { display: none !important; }
+
 </style>
 </head>
 <body class="over-dark">
@@ -4306,8 +4336,19 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">
-<img src="aenza.png" alt="AENZA" style="height:32px;width:auto;object-fit:contain;">
+  <a href="#hero" class="nav-logo nav-logo-has-img">
+    <!-- Logo oscuro: para fondo blanco (scroll) — reemplaza src con tu logo oscuro -->
+    <img class="nav-logo-img dark"  src="logo-aenza-dark.png"  alt="AENZA"
+         onerror="this.style.display='none'"/>
+    <!-- Logo blanco: para fondo transparente (hero) — reemplaza src con tu logo blanco -->
+    <img class="nav-logo-img white" src="logo-aenza-white.png" alt="AENZA"
+         onerror="this.style.display='none'"/>
+    <!-- Fallback SVG si no hay imagen -->
+    <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <path d="M2 26L14 2L26 26" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <line x1="19" y1="17" x2="27" y2="5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">AENZA</span>
   </a>
 
   <ul class="nav-links">
@@ -4578,7 +4619,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Infraestructura -->
-          <img class="emp-logo-img" src="unnainfra.png" alt="UNNA Infraestructura"
+          <img class="emp-logo-img" src="logo-unna-infraestructura.png" alt="UNNA Infraestructura"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4608,7 +4649,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo UNNA Energía -->
-          <img class="emp-logo-img" src="unnaene.png" alt="UNNA Energía"
+          <img class="emp-logo-img" src="logo-unna-energia.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4638,7 +4679,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="emp-panel-body">
         <div class="emp-panel-logo">
           <!-- Reemplaza src con la ruta real del logo VIVA -->
-          <img class="emp-logo-img" src="viva.png" alt="VIVA"
+          <img class="emp-logo-img" src="logo-viva.png" alt="VIVA"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           
         </div>
@@ -4712,7 +4753,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="linea 1.png" alt="Línea 1"
+          <img class="conc-logo-img" src="logo-linea1.png" alt="Línea 1"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="48" height="36" viewBox="0 0 56 44" fill="none"><rect x="1" y="1" width="54" height="42" rx="5" fill="#0a1740"/><text x="6" y="30" font-family="system-ui" font-weight="900" font-size="22" fill="#fff">L</text><text x="22" y="30" font-family="system-ui" font-weight="900" font-size="22" fill="#e30613">1</text></svg></div>
         </div>
@@ -4723,7 +4764,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="canchaque.png" alt="Norvial"
+          <img class="conc-logo-img" src="logo-norvial.png" alt="Norvial"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="60" height="36" viewBox="0 0 72 44" fill="none"><rect x="1" y="1" width="70" height="42" rx="5" fill="#002060"/><text x="8" y="30" font-family="system-ui" font-weight="800" font-size="16" fill="#fff" letter-spacing="1">NORVIAL</text></svg></div>
         </div>
@@ -4734,7 +4775,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="linea 1.png" alt="Survial"
+          <img class="conc-logo-img" src="logo-survial.png" alt="Survial"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="60" height="36" viewBox="0 0 72 44" fill="none"><rect x="1" y="1" width="70" height="42" rx="5" fill="#004080"/><text x="8" y="30" font-family="system-ui" font-weight="800" font-size="16" fill="#fff" letter-spacing="1">SURVIAL</text></svg></div>
         </div>
@@ -4745,7 +4786,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="canchaque.png" alt="Canchaque"
+          <img class="conc-logo-img" src="logo-canchaque.png" alt="Canchaque"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="56" height="36" viewBox="0 0 64 44" fill="none"><rect x="1" y="1" width="62" height="42" rx="5" fill="#001540"/><path d="M8 34L24 14L40 34" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" fill="none"/></svg></div>
         </div>
@@ -4756,7 +4797,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
       <div class="conc-card">
         <div class="conc-ico">
           <!-- Reemplaza src con tu logo real -->
-          <img class="conc-logo-img" src="unnainfra.png" alt="UNNA Energía"
+          <img class="conc-logo-img" src="logo-unna-e.png" alt="UNNA Energía"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="conc-logo-fallback"><svg width="56" height="36" viewBox="0 0 64 44" fill="none"><rect x="1" y="1" width="62" height="42" rx="5" fill="#001f5c"/><path d="M22 8L14 24h8l-4 12 16-20H28l6-16z" fill="#4da6ff"/><text x="34" y="28" font-family="system-ui" font-weight="800" font-size="12" fill="#fff">UNNA</text></svg></div>
         </div>
