@@ -4391,6 +4391,26 @@ body:has(button:hover) #c-dot { opacity: 0; }
   filter: none;
 }
 
+
+/* ── Empresas header: altura compacta ── */
+#empresas { padding: 48px 0 0 !important; }
+.emp-hdr {
+  padding: 0 52px !important;
+  max-width: var(--max) !important;
+  margin: 0 auto 28px !important;
+}
+
+
+/* ── Bottom bar: sin espacio extra ── */
+.emp-bottom-bar { margin-top: 0 !important; }
+#empresas { padding-bottom: 0 !important; }
+
+
+/* ── Eliminar gap entre paneles y bottom bar ── */
+.emp-panels { margin-bottom: 0 !important; }
+.emp-bottom-bar { margin-top: 0 !important; border-top: none !important; }
+#empresas { gap: 0 !important; }
+
 </style>
 </head>
 <body class="over-dark">
@@ -4404,14 +4424,14 @@ body:has(button:hover) #c-dot { opacity: 0; }
 <nav id="nav">
   <a href="#hero" class="nav-logo nav-logo-has-img">
     <!-- Un solo logo — pon tu archivo aquí. Se vuelve blanco sobre hero y oscuro al hacer scroll -->
-    <img class="nav-logo-img single" src="logo-aenza-dark.png" alt="AENZA"
+    <img class="nav-logo-img single" src="logo-aenza.png" alt="AENZA"
          onerror="this.style.display='none'"/>
     <!-- Fallback SVG si no hay imagen -->
     <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none">
       <path d="M2 26L14 2L26 26" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
       <line x1="19" y1="17" x2="27" y2="5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
     </svg>
-    <span class="nav-logo-text">AENZA</span>
+    <span class="nav-logo-text" style="display:none">AENZA</span>
   </a>
 
   <ul class="nav-links">
@@ -4766,31 +4786,6 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
   </div>
 
-  <!-- Bottom info bar -->
-  <div class="emp-bottom-bar">
-    <a href="https://www.unna.com.pe" target="_blank" class="emp-bb-item">
-      <img class="emp-bb-logo" src="unnainfra.png" alt="UNNA Infraestructura"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-      <span class="emp-bb-fallback">UNNA Infraestructura</span>
-      <div class="emp-bb-tagline">Conectando el Perú de norte a sur</div>
-      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
-    </a>
-    <a href="https://www.unnaenergia.com.pe" target="_blank" class="emp-bb-item">
-      <img class="emp-bb-logo" src="unnaene.png" alt="UNNA Energía"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-      <span class="emp-bb-fallback">UNNA Energía</span>
-      <div class="emp-bb-tagline">Liderando la transición energética</div>
-      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
-    </a>
-    <a href="http://www.viva.com.pe" target="_blank" class="emp-bb-item">
-      <img class="emp-bb-logo" src="viva.png" alt="VIVA"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-      <span class="emp-bb-fallback">VIVA</span>
-      <div class="emp-bb-tagline">Construimos hogares para el Perú</div>
-      <div class="emp-bb-arrow"><svg class="ic" width="12" height="12" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 5h8M5 1l4 4-4 4"/></svg></div>
-    </a>
-  </div>
-
 </section>
 
 <!-- ═══════════ CONCESIONARIAS ═══════════ -->
@@ -5018,26 +5013,6 @@ body:has(button:hover) #c-dot { opacity: 0; }
       </div>
 
     </div>
-
-    <!-- Ticker -->
-    <div class="nv4-ticker">
-      <div class="nv4-ticker-lbl">En portada</div>
-      <div class="nv4-ticker-scroll">
-        <div class="nv4-ticker-inner">
-          <div class="nv4-tick"><span>AENZA consolida liderazgo en infraestructura del Perú</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>UNNA Energía amplía capacidad renovable al 2026</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>Línea 1 registra cifra récord de pasajeros en 2024</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>VIVA lanza nuevo proyecto residencial en Lima Norte</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>AENZA recibe reconocimiento internacional por sostenibilidad</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>Norvial moderniza tramo norte con nueva tecnología vial</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>AENZA consolida liderazgo en infraestructura del Perú</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>UNNA Energía amplía capacidad renovable al 2026</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>Línea 1 registra cifra récord de pasajeros en 2024</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>VIVA lanza nuevo proyecto residencial en Lima Norte</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>AENZA recibe reconocimiento internacional por sostenibilidad</span><div class="nv4-tsep"></div></div>
-          <div class="nv4-tick"><span>Norvial moderniza tramo norte con nueva tecnología vial</span><div class="nv4-tsep"></div></div>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -5050,11 +5025,7 @@ body:has(button:hover) #c-dot { opacity: 0; }
   <div class="ft-top-bar">
     <div>
       <div class="ft-logo-big">
-        <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-          <path d="M2 26L14 2L26 26" stroke="#0345F5" stroke-width="2.4" stroke-linejoin="round"/>
-          <line x1="19" y1="17" x2="27" y2="5" stroke="#0345F5" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-        AENZA
+        <img src="logo-aenza.png" alt="AENZA" style="height:72px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
       </div>
       <div class="ft-tagline-italic">Construyendo el futuro del Perú desde hace más de 70 años.</div>
     </div>
