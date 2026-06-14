@@ -4375,6 +4375,22 @@ body:has(button:hover) #c-dot { opacity: 0; }
   left: auto !important;
 }
 
+
+/* ── Logo único que cambia de color según fondo ── */
+.nav-logo-img.single {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* Sobre hero oscuro: fuerza blanco */
+  filter: brightness(0) invert(1);
+  transition: filter .4s;
+}
+/* Al hacer scroll (nav blanco): color original */
+#nav.solid .nav-logo-img.single {
+  filter: none;
+}
+
 </style>
 </head>
 <body class="over-dark">
@@ -4387,11 +4403,8 @@ body:has(button:hover) #c-dot { opacity: 0; }
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
   <a href="#hero" class="nav-logo nav-logo-has-img">
-    <!-- Logo oscuro: para fondo blanco (scroll) — reemplaza src con tu logo oscuro -->
-    <img class="nav-logo-img dark"  src="logo-aenza-dark.png"  alt="AENZA"
-         onerror="this.style.display='none'"/>
-    <!-- Logo blanco: para fondo transparente (hero) — reemplaza src con tu logo blanco -->
-    <img class="nav-logo-img white" src="logo-aenza-white.png" alt="AENZA"
+    <!-- Un solo logo — pon tu archivo aquí. Se vuelve blanco sobre hero y oscuro al hacer scroll -->
+    <img class="nav-logo-img single" src="logo-aenza.png" alt="AENZA"
          onerror="this.style.display='none'"/>
     <!-- Fallback SVG si no hay imagen -->
     <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none">
