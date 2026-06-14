@@ -4315,11 +4315,11 @@ body:has(button:hover) #c-dot { opacity: 0; }
 
 /* Cuando nav es transparente (sobre hero): mostrar logo blanco */
 #nav:not(.solid) .nav-logo-img.dark  { opacity: 0; }
-#nav:not(.solid) .nav-logo-img.white { opacity: 1; position: absolute; }
+#nav:not(.solid) .nav-logo-img.white { opacity: 1; position: relative; }
 
 /* Cuando nav es sólido (scroll): mostrar logo oscuro */
-#nav.solid .nav-logo-img.dark  { opacity: 1; position: absolute; }
-#nav.solid .nav-logo-img.white { opacity: 0}
+#nav.solid .nav-logo-img.dark  { opacity: 1; }
+#nav.solid .nav-logo-img.white { opacity: 0; position: absolute; }
 
 /* Ocultar texto AENZA y SVG mark si hay imagen */
 .nav-logo-has-img .nav-logo-mark,
@@ -4363,6 +4363,17 @@ body:has(button:hover) #c-dot { opacity: 0; }
   transform: translateY(-50%) !important;
 }
 #nav:not(.solid) .nav-logo-img.white { position: relative !important; transform: none !important; }
+
+
+/* ── Nav logo: posición correcta ambos estados ── */
+.nav-logo { position: static !important; }
+.nav-logo-img.white,
+.nav-logo-img.dark {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+}
 
 </style>
 </head>
